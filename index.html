@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Exploring the Gender Wage Gap</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/data.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script src="js/themes/grid-light.js"></script>
+        <link href="styles/highcharts.css" rel="stylesheet">
+    </head>
+    <h1>Exploring the Gender Wage Gap</h1>
+    <h2>By Cresonia Hsieh</h2>
+<p>The data tables below explore the concept of the gender wage gap. The first table shows that women earn more than men up until 39 hours of work per week after adjusting by median weekly earnings per hours worked. After 40 hours of work per week, men earn more than women. The second chart is a supplement to the first chart by attempting to explore a reason why women may earn less than men on average. By looking at high-paying fields of study, the charts show that men typically dominate high-paying fields. This may be a reason why women earn less than men on average.</p>
+
+    
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <table id="datatable">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Men</th>
+			<th>Women</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>0 to 34</th>
+			<td>232</td>
+			<td>245</td>
+		</tr>
+		<tr>
+			<th>35 to 39</th>
+			<td>466</td>
+			<td>507</td>
+		</tr>
+		<tr>
+			<th>40</th>
+			<td>771</td>
+			<td>691</td>
+		</tr>
+		<tr>
+			<th>41 to 44</th>
+			<td>912</td>
+			<td>814</td>
+		</tr>
+		<tr>
+			<th>45 to 48</th>
+			<td>1097</td>
+			<td>996</td>
+		</tr>
+        <tr>
+			<th>49 to 59</th>
+			<td>1317</td>
+			<td>1193</td>
+		</tr>
+        <tr>
+			<th>60 hours and over</th>
+			<td>1436</td>
+			<td>1202</td>
+		</tr>
+	</tbody>
+</table>
+    <p><b>Source</b>: Bureau of Labor Statistics, <a href="http://www.bls.gov/opub/reports/cps/highlights-of-womens-earnings-in-2013.pdf">Table 5. Median usual weekly earnings of wage and salary workers, by hours usually worked, 2013 annual averages</a></p>
+
+<div id="secondchart" style="min-width: 75%; max-width: 100%; height: 100%; margin: 5em"></div>
+
+
+<script>
+    $(function () {
+    $('#container').highcharts({
+        data: {
+            table: 'datatable'
+        },
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Median usual weekly earnings of wage and salary workers, by hours usually worked, 2013 annual averages'
+        },
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: 'Median Weeekly Earnings'
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    this.point.y + ' ';
+            }
+        }
+    });
+});
+    
+    $(function () {
+    $('#secondchart').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: "A comparison of men and women via percentage of bachelor's degrees in high-paying majors"
+        },
+        xAxis: {
+            categories: ['Engineering', 'Health Professions', 'Computer Science', 'Math and Statistics', 'Business']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: "Percentage of bachelor's degrees"
+            }
+        },
+        legend: {
+            reversed: true
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+            name: 'Men',
+            data: [82.5, 15.2, 81.8, 56.9, 51.8]
+        }  
+        , {
+            name: 'Women',
+            data: [17.5, 84.8, 18.2, 43.1, 48.2]
+        }]
+    });
+});
+</script>
+<p><b>Source</b>: Department of Education, <a href="https://nces.ed.gov/programs/digest/d13/tables/dt13_318.30.asp">
+Table 318.30. Bachelor's, master's, and doctor's degrees conferred by postsecondary institutions, by sex of student and discipline division: 2011-12</a> and Aggregated by Randal Olsen <a href="http://www.randalolson.com/2014/06/14/percentage-of-bachelors-degrees-conferred-to-women-by-major-1970-2012/">Percentage of Bachelor’s degrees conferred to women, by major (1970-2012)</a></p>
+
+</body>
+</html>

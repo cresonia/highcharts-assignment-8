@@ -1,0 +1,14 @@
+body {
+    background: #FFF;
+    color: #000;
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 100%;
+    margin: 10px; 
+}
+
+h2 {
+    font:50%;
+    color:#736F6E;
+}
+a { color: #4DB8FF; }
+a:hover { color: #FF9933; }

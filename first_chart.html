@@ -5,12 +5,43 @@
         <title>My first chart with Highcharts</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
         <script src="js/highcharts.js"></script>
+        <script src="js/themes/grid-light.js"></script>
 </head>
 <body>
 
 <h1>My first chart with Highcharts</h1>
 <!-- add the div and the code below this comment -->
-
+    
+     <div id="container" style="width: 50%; height: 400px;"></div>
+    
+<script>
+    
+    $(function () { 
+    $('#container').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        xAxis: {
+            categories: ['Watermelon','Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        },
+        series: [{
+            name: 'Tak',
+            data: [3, 1, 0, 4]
+        }, {
+            name: 'Cresonia',
+            data: [3, 5, 7, 3]
+        }]
+    });
+});
+</script>
 
 </body>
 </html>
